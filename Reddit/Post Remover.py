@@ -19,8 +19,7 @@ reddit = praw.Reddit(client_id=input("Client ID: "),
 excluded_subs = []
 
 for submission in reddit.redditor(reddit.user.me().name).submissions.new(limit=None):
-    if not any(sub_name.lower() == submission.subreddit.display_name.lower() for sub_name in excluded_subs) and \
-        submission.delete()
-        print(f"Post deleted! - {submission}")
+  submission.delete()
+  print(f"Post deleted! - {submission}")
 
 print("Done")
